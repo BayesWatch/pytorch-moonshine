@@ -4,11 +4,10 @@ Code used to produce https://arxiv.org/abs/1711.02613
 
 ## Installation Instructions
 
-Best done with conda. Make sure your conda is up to date.
+If installing with conda:
 
-Make a new environment then activate it. Python version probably doesn't matter but I use 2 for no apparent reason.
 ```
-conda create -n torch python=2
+conda create -n torch python=3.6
 source activate torch
 ```
 then
@@ -17,7 +16,7 @@ then
 conda install pytorch torchvision -c pytorch
 pip install tqdm
 pip install tensorboardX
-pip install tensorflow
+conda install tensorflow
 ```
 
 ## Training a Teacher
@@ -27,6 +26,11 @@ In general, the following code trains a teacher network:
 ```
 python main.py <DATASET> teacher --conv <CONV-TYPE> -t <TEACHER_CHECKPOINT> --wrn_depth <TEACHER_DEPTH> --wrn_width <TEACHER_WIDTH>
 ```
+
+Where `<DATASET>` is one of `cifar10`, `cifar100` or `imagenet`. By
+default, `cifar10` and `cifar100` are assumed to be stored at
+`/disk/scratch/datasets/cifar`, but any directory can be set with
+`--cifar_loc`.
 
 In the paper, results are typically reported using a standard 40-2 WRN,
 which would be the following (on cifar-10):
@@ -55,9 +59,7 @@ python main.py cifar10 student --conv G8B2 -t wrn_40_2 -s wrn_40_2.g8b2.student 
 
 ## Acknowledgements
 
-Code has been liberally borrowed from other repos.
-
-A non-exhaustive list follows:
+The following repos provided basis and inspiration for this work:
 
 ```
 https://github.com/szagoruyko/attention-transfer

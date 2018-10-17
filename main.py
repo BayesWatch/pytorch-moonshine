@@ -24,6 +24,7 @@ parser = argparse.ArgumentParser(description='Student/teacher training')
 parser.add_argument('dataset', type=str, choices=['cifar10', 'cifar100', 'imagenet'], help='Choose between Cifar10/100/imagenet.')
 parser.add_argument('mode', choices=['student','teacher'], type=str, help='Learn a teacher or a student')
 parser.add_argument('--imagenet_loc', default='/disk/scratch_ssd/imagenet',type=str, help='folder containing imagenet train and val folders')
+parser.add_argument('--cifar_loc', default='/disk/scratch/datasets/cifar',type=str, help='folder containing cifar train and val folders')
 parser.add_argument('--workers', default=2, type=int, help='No. of data loading workers. Make this high for imagenet')
 parser.add_argument('--resume', '-r', action='store_true', help='resume from checkpoint')
 parser.add_argument('--GPU', default=None, type=str,help='GPU to use')
@@ -320,9 +321,9 @@ if __name__ == '__main__':
             transforms.ToTensor(),
             transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
         ])
-        trainset = torchvision.datasets.CIFAR10(root='/disk/scratch/datasets/cifar',
+        trainset = torchvision.datasets.CIFAR10(root=args.cifar_loc,
                                                 train=True, download=False, transform=transform_train)
-        valset = torchvision.datasets.CIFAR10(root='/disk/scratch/datasets/cifar',
+        valset = torchvision.datasets.CIFAR10(root=args.cifar_loc,
                                                train=False, download=False, transform=transform_validate)
     elif args.dataset == 'cifar100':
         num_classes = 100
@@ -336,9 +337,9 @@ if __name__ == '__main__':
             transforms.ToTensor(),
             transforms.Normalize((0.5071, 0.4866, 0.4409), (0.2009, 0.1984, 0.2023)),
         ])
-        trainset = torchvision.datasets.CIFAR100(root='/disk/scratch/datasets/cifar100',
+        trainset = torchvision.datasets.CIFAR100(root=args.cifar_loc,
                                                 train=True, download=True, transform=transform_train)
-        validateset = torchvision.datasets.CIFAR100(root='/disk/scratch/datasets/cifar100',
+        validateset = torchvision.datasets.CIFAR100(root=args.cifar_loc,
                                                train=False, download=True, transform=transform_validate)
 
     elif args.dataset == 'imagenet':
