@@ -59,6 +59,10 @@ python main.py cifar10 student --conv G8B2 -t wrn_40_2 -s wrn_40_2.g8b2.student 
 
 ## Acknowledgements
 
+[Elliot Crowley][elliot] did most of the development work on the initial
+version of this code, but the code is provided here without the full commit
+log for privacy reasons.
+
 The following repos provided basis and inspiration for this work:
 
 ```
@@ -66,3 +70,5 @@ https://github.com/szagoruyko/attention-transfer
 https://github.com/kuangliu/pytorch-cifar
 https://github.com/xternalz/WideResNet-pytorch
 ```
+
+[elliot]: https://homepages.inf.ed.ac.uk/ecrowley/
