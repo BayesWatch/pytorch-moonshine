@@ -1,0 +1,14 @@
+.idea/
+misc/
+checkpoints/
+misc/log.pkl
+checkpoints
+tinker.py
+go.sh
+test.sh
+bash/
+# all python caches
+__pycache__
+state_dicts/
+logs
+runs
