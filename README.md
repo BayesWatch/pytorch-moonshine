@@ -71,4 +71,17 @@ https://github.com/kuangliu/pytorch-cifar
 https://github.com/xternalz/WideResNet-pytorch
 ```
 
+## Citing this work
+
+If you would like to cite this work, please use the following bibtex entry:
+
+```
+@inproceedings{moonshine,
+  title={Moonshine: Distilling with Cheap Convolutions},
+  author={Crowley, Elliot~J. and Gray, Gavin and Storkey, Amos},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year={2018}
+}
+```
+
 [elliot]: https://homepages.inf.ed.ac.uk/ecrowley/
