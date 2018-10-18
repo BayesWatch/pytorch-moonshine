@@ -6,7 +6,11 @@ import torch.nn.functional as F
 
 from torch.autograd import Variable
 
-from torch_dct.layers import FastStackedConvACDC
+try:
+    from pytorch_acdc.layers import FastStackedConvACDC
+except ImportError:
+    # then we assume you don't want to use this layer
+    pass
 
 
 def ACDC(in_channels, out_channels, kernel_size, stride=1,
