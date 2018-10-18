@@ -69,6 +69,7 @@ The following repos provided basis and inspiration for this work:
 https://github.com/szagoruyko/attention-transfer
 https://github.com/kuangliu/pytorch-cifar
 https://github.com/xternalz/WideResNet-pytorch
+https://github.com/ShichenLiu/CondenseNet
 ```
 
 ## Citing this work
